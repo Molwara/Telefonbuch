@@ -1,3 +1,4 @@
-@charset "utf-8";
-/* CSS Document */
-
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
