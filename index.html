@@ -7,10 +7,10 @@
     	<link rel="stylesheet" href="css/index.css">
     	
 	</head>
-	<body>
+	<body ng-controller="ContactListController as contactList">
 		<h2>Telefonbuch</h2>
         
-        <table ng-controller="ContactListController as contactList">
+        <table>
         	<tr>
             	<th>Name</th>
                 <th>Telefonnummer</th>
@@ -22,5 +22,11 @@
                 <td></td>
             </tr>
         </table>
+        
+        <form ng-submit="contactList.addContact()">
+        	<input type="text" ng-model="contactList.name" name="name" placeholder="Name">
+            <input type="tel" ng-model="contactList.number" name="number" placeholder="Telefonnummer">
+            <input type="submit" value="Hinzufügen">
+        </form>
 	</body>
 </html>
