@@ -9,5 +9,9 @@ angular.module('contactApp', [])
 			contactList.contacts.push({name:contactList.name, number:contactList.number});
 			contactList.name = '';
 			contactList.number = '';
-		}
+		};
+		
+		contactList.deleteContact = function(index) {
+			contactList.contacts.splice(index,1);
+		};
 	});

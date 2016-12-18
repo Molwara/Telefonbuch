@@ -19,7 +19,7 @@
             <tr ng-repeat="contact in contactList.contacts">
             	<td>{{contact.name}}</td>
                 <td>{{contact.number}}</td>
-                <td></td>
+                <td><button type="button" ng-click="contactList.deleteContact($index)">Löschen</button></td>
             </tr>
         </table>
         
