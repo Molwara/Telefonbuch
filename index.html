@@ -19,9 +19,18 @@
                 <th></th>
             </tr>
             <tr ng-repeat="contact in contactList.contacts | filter:contactList.searchText">
-            	<td>{{contact.name}}</td>
-                <td>{{contact.phone}}</td>
-                <td><button type="button" ng-click="contactList.deleteContact($index)">Löschen</button></td>
+            	<td>
+                	<span ng-show="contact.edit == false">{{contact.name}}</span>
+                    <input ng-show="contact.edit == true" type="text" ng-model="contact.name" name="name" value="contact.name">
+                </td>
+                <td>
+                	<span ng-show="contact.edit == false">{{contact.phone}}</span>
+                    <input ng-show="contact.edit == true" type="tel" ng-model="contact.phone" name="phone" value="contact.phone">
+                </td>
+                <td>
+                	<button type="button" ng-click="contact.edit === false ? contact.edit = true : contact.edit = false">Bearbeiten</button>
+                    <button type="button" ng-click="contactList.deleteContact($index)">Löschen</button>
+                </td>
             </tr>
         </table>
         
