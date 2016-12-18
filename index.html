@@ -10,22 +10,24 @@
 	<body ng-controller="ContactListController as contactList">
 		<h2>Telefonbuch</h2>
         
+        <input type="text" ng-model="contactList.searchText.name" name="search" placeholder="Kontakt suchen...">
+        
         <table>
         	<tr>
             	<th>Name</th>
                 <th>Telefonnummer</th>
                 <th></th>
             </tr>
-            <tr ng-repeat="contact in contactList.contacts">
+            <tr ng-repeat="contact in contactList.contacts | filter:contactList.searchText">
             	<td>{{contact.name}}</td>
-                <td>{{contact.number}}</td>
+                <td>{{contact.phone}}</td>
                 <td><button type="button" ng-click="contactList.deleteContact($index)">Löschen</button></td>
             </tr>
         </table>
         
         <form ng-submit="contactList.addContact()">
         	<input type="text" ng-model="contactList.name" name="name" placeholder="Name">
-            <input type="tel" ng-model="contactList.number" name="number" placeholder="Telefonnummer">
+            <input type="tel" ng-model="contactList.phone" name="phone" placeholder="Telefonnummer">
             <input type="submit" value="Hinzufügen">
         </form>
 	</body>
