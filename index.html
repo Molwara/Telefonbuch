@@ -28,7 +28,7 @@
                     <input ng-show="contact.edit == true" type="tel" ng-model="contact.phone" name="phone" value="contact.phone">
                 </td>
                 <td>
-                	<button type="button" ng-click="contact.edit === false ? contact.edit = true : contact.edit = false">Bearbeiten</button>
+                	<button type="button" ng-click="contactList.toggleEdit($index)">{{contact.edit === false ? contactList.textEdit : contactList.textSave}}</button>
                     <button type="button" ng-click="contactList.deleteContact($index)">Löschen</button>
                 </td>
             </tr>
