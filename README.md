@@ -37,7 +37,7 @@ Hinter dem Button steckt eine einfache Funktion "toggleEdit" aus dem Angular Mod
 
 Durch diese Umsetzung wird es sogar möglich mehrere Kontakte gleichzeitig zu bearbeiten. Eigentlich ist die Bezeichnung des Buttons "Speichern" irreführend, weil beim Bearbeiten schon direkt der Datensatz in der Collection des Models geändert wird. Es wäre also die Bezeichnung Bearbeitungsmodus "Beenden" korrekter, aber für den normalen Nutzer, der sich nicht mit AngularJS auskennt, ist es aus Gründen der [Benutzerfreundlichkeit](https://de.wikipedia.org/wiki/Benutzerfreundlichkeit) besser die Bezeichnung "Speichern" zu verwenden.
 
-> Eine mögliche Verbesserung wäre eine andere Umsetzung des Bearbeitungsmoduses um eine komplexe Validierung der Daten möglich zu machen. Vielleicht wäre der Einsatz des HTML-Attributes "disable" in alle anderen Formularfelder und Buttons zu empfehlen, wenn nur ein Eintrag zur Zeit bearbeitbar und kein Löschen, Hinzufügen oder Suchen dabei möglich sein soll.
+> Eine mögliche Verbesserung wäre eine andere Umsetzung des Bearbeitungsmoduses um eine komplexe Validierung der Daten möglich zu machen. Vielleicht wäre der Einsatz des HTML-Attributes "disable" in allen anderen Formularfelder und Buttons zu empfehlen, wenn nur ein Eintrag zur Zeit bearbeitbar und kein Löschen, Hinzufügen oder Suchen währenddessen möglich sein soll.
 
 ### Löschen bestehender Einträge
 
@@ -55,7 +55,7 @@ In der Kontaktliste fügt man an der Stelle im HTML, wo [ngRepeat](https://docs.
 
 ## Erläuterungen zum Styling
 
-Das Design gleicht einer Handy App mit Header, Content und Footer. Das CSS ist responsiv angelegt, sodass es sich an alle Bildschirmgrößen anpasst. Die Textgröße kann an einer zentralen Stelle geändert werden und wirkt sich auf alle Elemente aus.
+Das Design gleicht einer Handy App mit Header, Content und Footer. Das CSS ist responsive angelegt, sodass es sich an alle Bildschirmgrößen anpasst. Die Textgröße kann an einer zentralen Stelle geändert werden und wirkt sich auf alle Elemente aus. Header und Footer haben einen schwarzen Hintergrund, um die Textfelder besser hervorzuheben. Das Textfeld für die Suche ist mit "float: right" an die rechte Seite des Headers geheftet. Die Tabelle verfügt über einen farblichen Header und bekommt im Body ein "Striped"-Design über "nth-child(odd)". Die Buttons "Bearbeiten" und "Löschen" sind entsprechend farblich grün und rot hervorgehoben. Bei dem Footer handelt es sich um einen "Sticky Footer", der absolut unten auf der Webseite positioniert ist. Der Footer hat eine feste Höhe bekommen, die dem Content per "padding-bottom" abgezogen wird, damit der Content nicht unter dem Footer verschwindet. Die Formularfelder und der Button zum Hinzufügen eines neuen Kontakts sind im Footer zu ungefähr ein drittel Breite hintereinander weg angeordnet.
 
 > ### Mögliche Verbesserungen des Stylings
 >
