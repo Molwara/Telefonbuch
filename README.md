@@ -1,7 +1,7 @@
 ﻿# Telefonbuch
 Fingerübung für [dff solutions GmbH](https://dff-solutions.de/)
 
-> Das Telefonbuch ist eine "Single Page Applikation", das mit dem Framework [AngularJS](http://angularjs.org) umgesetzt wurde.
+Das Telefonbuch ist eine ["Single Page Applikation"](https://de.wikipedia.org/wiki/Single-Page-Webanwendung), das mit dem Framework [AngularJS](http://angularjs.org) umgesetzt wurde.
 
 ## Funktionalitäten
 
@@ -13,7 +13,8 @@ Fingerübung für [dff solutions GmbH](https://dff-solutions.de/)
 
 ### Anzeige von Einträgen in einer Liste
 
-Das Array "contacts" enthält einen beispielhaften Satz aus Kontakdaten der dem Aufbau einer JSON-Datei gleicht (Objekte mit Attributen) und in Verbindung mit einem Server durch eine Solche ersetzt werden kann (per Ajax könnte man hier eine Verbindung mit dem Backend aufbauen).
+Die Kontakte des Telefonbuches sind hier in einem Array abgelegt, wo jeder Kontakt ein eigenes Objekt an einer Stelle des Arrays hat, das über mehrere Attribute verfügt. Dies gleicht dem Aufbau einer [JSON](http://www.json.org/json-de.html), wodurch die beispielhafte Liste an Kontaktdaten in der App einfach durch eine JSON-Datei, die auf einem Server abgelegt ist, ersetzt werden kann. Hier könnte man per [Ajax](https://de.wikipedia.org/wiki/Ajax_(Programmierung)) die Kontaktdaten vom Server holen und nach Bearbeitung oder Hinzufügen eines Kontaktes diese Änderungen wieder auf dem Server speichern.
+Die Kontaktdaten sind in den Attributen "name" und "phone" abgelegt und die dort hinterlegten Strings werden auf der HTML-Seite in einer Tabelle angezeigt. Es gibt jeweils eine Tabellenspalte für den Namen und die Telefonnummer des Kontakts und noch eine dritte Spalte für die Buttons zum Bearbeiten und Löschen der einzelnen Einträge in der Kontaktliste. Die einzelnen Tabellenzeilen werden über die AngularJS Funktion [ngRepeat](https://docs.angularjs.org/api/ng/directive/ngRepeat) mit den Einträgen der Kontaktdaten in dem dafür hinterlegtem Array erzeugt.
 
 ### Anlegen von Einträgen
 
