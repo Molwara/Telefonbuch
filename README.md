@@ -1,9 +1,9 @@
 ﻿# Telefonbuch
-Fingerübung für dff solutions GmbH
+Fingerübung für [dff solutions GmbH](https://dff-solutions.de/)
 
 > Das Telefonbuch ist eine "Single Page Applikation", das mit dem Framework [AngularJS](http://angularjs.org) umgesetzt wurde.
 
-## Funktionalität
+## Funktionalitäten
 
 * Anzeige von Einträgen in einer Liste (Name und Telefonnummer)
 * Anlegen von Einträgen
@@ -32,6 +32,19 @@ Die Funktion "deleteContact" entfernt den über den Button ausgewählten Datensa
 "ng-model" verbindet die Formulareingabe mit dem Model der Klasse "contactApp" (, wo die Variable "searchText" automatisch angelegt wird) und ".name" definiert, dass nur im Attribut "name" des Objekts (, auf das im Folgendem der Suchfilter angewandt wird) gesucht werden soll.
 "ng-repeat" iteriert durch das im Model angegegebene Array "contacts" und erstellt somit für jeden Eintrag eine neue Tabellenzeile, in der man über der hier definierten Variable "contact" auf den Datensatz (das Objekt mit allen enthaltenen Attributen) der jeweiligen Stelle im Array zugreifen kann. Ab dem Trennstrich wird angegeben, dass ein Filter mit dem im zuvor erstellten "input"-Element angegebenen "searchText" auf die Liste angewandt werden soll.
 
+> ### Mögliche Verbesserungen der Funktionalitäten
+>
+> Sortierung der Kontakte von A bis Z. Validierung der Telefonnummer beim Hinzufügen eines neuen Kontakts (Filterung durch String replace Funktion und/oder zwei Attribute im Datensatz einmal für die Anzeige und für den Link), Filterung der Telefonnummer im "href"-Attribut des Links.
+
+## Erläuterungen zum Styling
+
+Das Design gleicht einer Handy App mit Header, Content und Footer. Das CSS ist responsiv angelegt, sodass es sich an alle Bildschirmgrößen anpasst. Die Textgröße kann an einer zentralen Stelle geändert werden und wirkt sich auf alle Elemente aus.
+
+> ### Mögliche Verbesserungen des Stylings
+
+> Wenn die Liste der Kontakte länger wird, bleibt der Footer unterhalb des Contents und ist irgendwann schwer zu erreichen, wenn man einen Kontakt hinzufügen will. Hier muss der Footer fest am unterem Bildschirmrand bleiben und der Content mit einer Festen Höhe (Bildschrimhöhe minus Header und Footer Höhe) und scrollbar sein. Die Buttons können noch mit Icons versehen werden. Um Barrierefreiheit für alle Nutzer zu bieten müssen Labels zu den Input-Feldern hinzugefügt werden, die entweder sichtbar für alle Nutzer oder unsichtbar nur für Screenreader-Nutzer erreichbar ist.
+
 ## Vorteile von AngularJS
 
-Die Fingerübung zeigt wie mit wenig Code und der Struktur von AngularJS eine einfache Umsetzung eines Telefonbuches ermöglicht.
+Die Fingerübung zeigt wie mit wenig Code und der Struktur von AngularJS eine einfache Umsetzung eines Telefonbuches möglich ist.
+
