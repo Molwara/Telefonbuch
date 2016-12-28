@@ -35,11 +35,14 @@ Durch diese Umsetzung wird es sogar möglich mehrere Kontakte gleichzeitig zu be
 
 ### Löschen bestehender Einträge
 
-Die Funktion "deleteContact" entfernt den über den Button ausgewählten Datensatz an der Stelle im Array "contacts", die der Funktion in dem Übergabewert "index" beim Klick auf den Button übergeben wurde.
+Um einen Kontakt aus dem Telefonbuch zu löschen, betätigt man den Button "Löschen" in der rechten Spalte der Tabelle und der ausgewählte Eintrag wird aus der Liste entfernt.
+
+Der Button ruft die Funktion "deleteContact" aus dem Angular Modul auf, die mit dem Übergabewert "index" den Datensatz an der ausgewählten Stelle der Collection mit der Array Funktion ["splice"](http://www.w3schools.com/jsref/jsref_splice.asp) entfernt. Durch die bidirektionale Datenbindung wird der [DOM](https://de.wikipedia.org/wiki/Document_Object_Model) sofort aktualisiert.
 
 ### Suche nach Namen
 
 "ng-model" verbindet die Formulareingabe mit dem Model der Klasse "contactApp" (, wo die Variable "searchText" automatisch angelegt wird) und ".name" definiert, dass nur im Attribut "name" des Objekts (, auf das im Folgendem der Suchfilter angewandt wird) gesucht werden soll.
+
 "ng-repeat" iteriert durch das im Model angegegebene Array "contacts" und erstellt somit für jeden Eintrag eine neue Tabellenzeile, in der man über der hier definierten Variable "contact" auf den Datensatz (das Objekt mit allen enthaltenen Attributen) der jeweiligen Stelle im Array zugreifen kann. Ab dem Trennstrich wird angegeben, dass ein Filter mit dem im zuvor erstellten "input"-Element angegebenen "searchText" auf die Liste angewandt werden soll.
 
 > ### Mögliche Verbesserungen der Funktionalitäten
