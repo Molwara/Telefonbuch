@@ -13,13 +13,17 @@ Das Telefonbuch ist eine ["Single Page Applikation"](https://de.wikipedia.org/wi
 
 ### Anzeige von Einträgen in einer Liste
 
-Die Kontakte des Telefonbuches sind hier in einem Array abgelegt, wo jeder Kontakt ein eigenes Objekt an einer Stelle des Arrays hat, das über mehrere Attribute verfügt. Dies gleicht dem Aufbau einer [JSON](http://www.json.org/json-de.html), wodurch die beispielhafte Liste an Kontaktdaten in der App einfach durch eine JSON-Datei, die auf einem Server abgelegt ist, ersetzt werden kann. Hier könnte man per [Ajax](https://de.wikipedia.org/wiki/Ajax_(Programmierung)) die Kontaktdaten vom Server holen und nach Bearbeitung oder Hinzufügen eines Kontaktes diese Änderungen wieder auf dem Server speichern.
+Die Kontakte des Telefonbuches sind hier in einem Array abgelegt, wo jeder Kontakt ein eigenes Objekt an einer Stelle des Arrays hat, das über mehrere Attribute verfügt. Dies gleicht dem Aufbau einer [JSON](http://www.json.org/json-de.html), wodurch die beispielhafte Liste an Kontaktdaten in der App einfach durch eine JSON-Datei, die auf einem Server abgelegt ist, ersetzt werden kann. Hier könnte man per [Ajax](https://de.wikipedia.org/wiki/Ajax_(Programmierung)) die Kontaktdaten vom Server holen und nach Bearbeitung oder Hinzufügen/Löschen eines Kontaktes diese Änderungen wieder auf dem Server speichern.
 
 Die Kontaktdaten sind in den Attributen "name" und "phone" abgelegt und die dort hinterlegten Strings werden auf der HTML-Seite in einer Tabelle angezeigt. Es gibt jeweils eine Tabellenspalte für den Namen und die Telefonnummer des Kontakts und noch eine dritte Spalte für die Buttons zum Bearbeiten und Löschen der Einträge in der Kontaktliste. Die einzelnen Tabellenzeilen werden über die AngularJS Funktion [ngRepeat](https://docs.angularjs.org/api/ng/directive/ngRepeat) mit der im Angular Model hinterlegten Collection (siehe oben beschriebenes Array) erzeugt, wodurch Änderungen an den Datensätzen (wie auch Hinzufügen oder Löschen eines Kontakts) sofort dynamisch auf der HTML-Seite sichtbar werden.
 
 ### Anlegen von Einträgen
 
-Die Funktion "addContact" fügt dem Array "contacts" einen neuen Datensatz hinzu, der sich aus den Attributen "name" und "phone" zusammensetzt, dessen Inhalt durch die Eingabe in den Formularfeldern über die dort definierten Variablen festgelegt wird.
+Um einen neuen Kontakt zu der Liste im Telefonbuch hinzuzufügen, gibt man Name und Telefonnummer in die vorgegebenen Formularfelder, die sich unter der Kontaktliste im Footer der App befinden, und drückt auf den Button "Hinzufügen" rechts unten in der Ecke des Footers. 
+
+Dieser ruft dann die Funktion "addContact" auf, die sich im Angular Modul "contactApp" befindet, das über den Controller dafür sorgt, dass die View verändert wird, wenn sich die im Model hinterlegten Daten ändern und umgekehrt. In dieser Funktion wird der Collection des Models ein neuer Datensatz hinzugefügt, der sich aus den Attributen "name" und "phone" zusammensetzt, dessen Inhalt durch die Eingabe in den Formularfeldern über die dort definierten Variablen festgelegt wird. Durch die zuvor beschriebene bidirektionale Datenbindung wird der neue Kontakt sofort in der Tabelle sichtbar. Zum Schluss werden in der Funktion über die entsprechenden Variablen die Strings in den Formularfeldern wieder geleert, um eine neue Eingabe möglich zu machen. 
+
+Um das Hinzufügen von leeren oder falschen Datensätzen zu verhindern, habe ich am Anfang der Funktion eine Abfrage hinzugefügt, die die Eingabe der Formularfelder vorab prüft und bei falscher Eingabe dem Nutzer über einen Alert eine Fehlermeldung gibt und danach die Funktion frühzeitig verlässt, damit die Daten nicht hinzugefügt werden.
 
 ### Bearbeiten bestehender Einträge
 
