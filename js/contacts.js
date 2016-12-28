@@ -5,9 +5,9 @@ angular.module('contactApp', [])
 		Das Array "contacts" enthält einen beispielhaften Satz aus Kontakdaten der dem Aufbau einer JSON-Datei gleicht (Objekte mit Attributen) 
 		und in Verbindung mit einem Server durch eine Solche ersetzt werden kann (per Ajax könnte man hier eine Verbindung mit dem Backend aufbauen)
 		*/
-		contactList.contacts = [{name:'Annika Bokelmann', phone:'0176/21360084', edit: false},
-						 		{name:'Dr. Ralf Itter', phone:'+ 49 (0) 551 900 37 90', edit: false},
-						 		{name:'dff solutions GmbH', phone:'+49 (0) 551 / 900 379 - 0', edit: false}];
+		contactList.contacts = [{name:'Annika Bokelmann', phone:'+4917621360084', edit: false},
+						 		{name:'Dr. Ralf Itter', phone:'+495519003790', edit: false},
+						 		{name:'dff solutions GmbH', phone:'+495519003790', edit: false}];
 		//austauschbare Strings für die Anzeige vom Bearbeitungsmodus im Button
 		contactList.textEdit = 'Bearbeiten';
 		contactList.textSave = 'Speichern';
@@ -17,6 +17,13 @@ angular.module('contactApp', [])
 		dessen Inhalt durch die Eingabe in den Formularfeldern über die dort definierten Variablen festgelegt wird
 		*/
 		contactList.addContact = function() {
+			//Fehlermeldung bei leeren Textfeldern oder wenn keine Telefonnummer
+			//console.log(contactList.phone,parseInt(contactList.phone));
+			if(!contactList.name || !contactList.phone || !parseInt(contactList.phone)){
+				alert('Bitte geben Sie valide Daten in die Textfelder ein!');
+				return;
+			}
+			
 			contactList.contacts.push({name:contactList.name, phone:contactList.phone, edit: false});
 			//Nach dem Hinzufügen des Kontakts wird die Eingabe in den Formularfeldern zurückgesetzt
 			contactList.name = '';

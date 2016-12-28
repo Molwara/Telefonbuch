@@ -10,54 +10,67 @@ Das Attribut "ng-app" activiert an dieser Stelle AngularJS für die komplette HT
         <!-- Einbindung von AngularJS -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
     	<script type="text/javascript" src="js/contacts.js"></script>
-        
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
     	<title>Telefonbuch</title>
 	</head>
 <!--
 Das Attribut "ng-controller" weist dem HTML-Code in diesem Abschnitt den Controller mit dem Name "ContactListController" zu (hier zu contactList gekürzt), der in der Klasse "contactApp" definiert wurde
 -->
 	<body ng-controller="ContactListController as contactList">
-		<h2>Telefonbuch</h2>
+        <div class="page">
+        	<header>
+        		<h2>Telefonbuch</h2>
 <!--
 "ng-model" verbindet die Formulareingabe mit dem Model der Klasse "contactApp" (, wo die Variable "searchText" automatisch angelegt wird) und ".name" definiert, dass nur im Attribut "name" des Objekts (, auf das im Folgendem der Suchfilter angewandt wird) gesucht werden soll
 -->
-        <input type="text" ng-model="contactList.searchText.name" name="search" placeholder="Kontakt suchen...">
-        
-        <table>
-        	<tr>
-            	<th>Name</th>
-                <th>Telefonnummer</th>
-                <th></th>
-            </tr>
+        		<input class="searchInput" type="text" ng-model="contactList.searchText.name" name="search" placeholder="Name suchen...">
+            	<div class="clear"></div>
+        	</header>
+            <div class="content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Telefon</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
 <!--
 "ng-repeat" iteriert durch das im Model angegegebene Array "contacts" und erstellt somit für jeden Eintrag eine neue Tabellenzeile, in der man über der hier definierten Variable "contact" auf den Datensatz (das Objekt mit allen enthaltenen Attributen) der jeweiligen Stelle im Array zugreifen kann. Ab dem Trennstrich wird angegeben, dass ein Filter mit dem im zuvor erstellten "input"-Element angegebenen "searchText" auf die Liste angewandt werden soll
 -->
-            <tr ng-repeat="contact in contactList.contacts | filter:contactList.searchText">
-            	<td>
-                	<!-- Mit "ng-show" wird definiert ob die Textansicht oder das bearbeitbare Formularfeld auf der Webseite sichtbar ist, dafür wird der booleansche Wert "edit" aus dem aktuellen Datensatz abgefragt. In dieser Spalte wird der Name des Kontakts ausgegeben -->
-                    <span ng-show="contact.edit == false">{{contact.name}}</span>
-                    <input ng-show="contact.edit == true" type="text" ng-model="contact.name" name="name" value="contact.name">
-                </td>
-                <td>
-                	<!-- Hier dasgleiche wie in der Spalte zuvor mit der Telefonnummer des Datensatzes -->
-                    <span ng-show="contact.edit == false">{{contact.phone}}</span>
-                    <input ng-show="contact.edit == true" type="tel" ng-model="contact.phone" name="phone" value="contact.phone">
-                </td>
-                <td>
-                	<!-- "ng-click" registriert ein Klick-Event auf den Button, das die Funktion "toggleEdit" des Models aufruft. Der Text des Buttons, dessen String in der Klasse abgelegt wurde, wechselt je nach Wert des "edit" Attributs (Textansicht -> "Bearbeiten", Formluaransicht -> "Speichern") -->
-                    <button type="button" ng-click="contactList.toggleEdit($index)">{{contact.edit === false ? contactList.textEdit : contactList.textSave}}</button>
-                    <!-- Hier ruft "ng-click" die Funktion "deleteContact" auf, mit der der aktuelle Datensatz aus dem Array entfernt wird -->
-                    <button type="button" ng-click="contactList.deleteContact($index)">Löschen</button>
-                </td>
-            </tr>
-        </table>
-		<!-- "ng-submit" legt fest, dass beim Klick auf den "submit"-Button die Funktion "addContact" der Klasse aufgerufen wird, die die Formulareingabe dem Array "contacts" hinzufügt -->
-        <form ng-submit="contactList.addContact()">
-        	<!-- "ng-model" verbindet hier die Formulareingabe mit dem Attribut "name" in der Kontakt Liste -->
-            <input type="text" ng-model="contactList.name" name="name" placeholder="Name">
-            <!-- Hier dasgleiche mit "phone" -->
-            <input type="tel" ng-model="contactList.phone" name="phone" placeholder="Telefonnummer">
-            <input type="submit" value="Hinzufügen">
-        </form>
+                        <tr ng-repeat="contact in contactList.contacts | filter:contactList.searchText">
+                            <td>
+                                <!-- Mit "ng-show" wird definiert ob die Textansicht oder das bearbeitbare Formularfeld auf der Webseite sichtbar ist, dafür wird der booleansche Wert "edit" aus dem aktuellen Datensatz abgefragt. In dieser Spalte wird der Name des Kontakts ausgegeben -->
+                                <span ng-show="contact.edit == false">{{contact.name}}</span>
+                                <input ng-show="contact.edit == true" type="text" ng-model="contact.name" name="name" value="contact.name">
+                            </td>
+                            <td>
+                                <!-- Hier dasgleiche wie in der Spalte zuvor mit der Telefonnummer des Datensatzes -->
+                                <a href="tel:{{contact.phone}}" ng-show="contact.edit == false">{{contact.phone}}</a>
+                                <input ng-show="contact.edit == true" type="tel" ng-model="contact.phone" name="phone" value="contact.phone">
+                            </td>
+                            <td>
+                                <!-- "ng-click" registriert ein Klick-Event auf den Button, das die Funktion "toggleEdit" des Models aufruft. Der Text des Buttons, dessen String in der Klasse abgelegt wurde, wechselt je nach Wert des "edit" Attributs (Textansicht -> "Bearbeiten", Formluaransicht -> "Speichern") -->
+                                <button class="edit" type="button" ng-click="contactList.toggleEdit($index)">{{contact.edit === false ? contactList.textEdit : contactList.textSave}}</button>
+                                <!-- Hier ruft "ng-click" die Funktion "deleteContact" auf, mit der der aktuelle Datensatz aus dem Array entfernt wird -->
+                                <button class="delete" type="button" ng-click="contactList.deleteContact($index)">Löschen</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer>
+            	<!-- "ng-submit" legt fest, dass beim Klick auf den "submit"-Button die Funktion "addContact" der Klasse aufgerufen wird, die die Formulareingabe dem Array "contacts" hinzufügt -->
+                <form ng-submit="contactList.addContact()">
+                    <!-- "ng-model" verbindet hier die Formulareingabe mit dem Attribut "name" in der Kontakt Liste -->
+                    <input type="text" ng-model="contactList.name" name="name" placeholder="Name">
+                    <!-- Hier dasgleiche mit "phone" -->
+                    <input type="tel" ng-model="contactList.phone" name="phone" placeholder="Telefonnummer">
+                    <input class="add" type="submit" value="Hinzufügen">
+                    <div class="clear"></div>
+                </form>
+            </footer>
+        </div>
 	</body>
 </html>
