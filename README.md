@@ -41,10 +41,13 @@ Die Funktion "deleteContact" entfernt den über den Button ausgewählten Datensa
 Das Design gleicht einer Handy App mit Header, Content und Footer. Das CSS ist responsiv angelegt, sodass es sich an alle Bildschirmgrößen anpasst. Die Textgröße kann an einer zentralen Stelle geändert werden und wirkt sich auf alle Elemente aus.
 
 > ### Mögliche Verbesserungen des Stylings
-
+>
 > Wenn die Liste der Kontakte länger wird, bleibt der Footer unterhalb des Contents und ist irgendwann schwer zu erreichen, wenn man einen Kontakt hinzufügen will. Hier muss der Footer fest am unterem Bildschirmrand bleiben und der Content mit einer Festen Höhe (Bildschrimhöhe minus Header und Footer Höhe) und scrollbar sein. Die Buttons können noch mit Icons versehen werden. Um Barrierefreiheit für alle Nutzer zu bieten müssen Labels zu den Input-Feldern hinzugefügt werden, die entweder sichtbar für alle Nutzer oder unsichtbar nur für Screenreader-Nutzer erreichbar ist.
 
 ## Vorteile von AngularJS
 
 Die Fingerübung zeigt wie mit wenig Code und der Struktur von AngularJS eine einfache Umsetzung eines Telefonbuches möglich ist.
 
+> ### Mögliche Verbesserungen der Single Page Applikation
+>
+> Wenn mehr Daten zu den einzelnen Kontakten hinzukommen sollen, würde hier eine Unterseite zum Ansehen und Bearbeiten des Kontakts besser sein. Hier könnte man dynamisch den Content zwischen Header und Footer verändern, um schnell und ohne HTML-Seitenwechsel zwischen Listenansicht und Detailansicht wechseln zu können. Hier würde dann das Model-View-Controller Prinzip von AngularJS zum Einsatz kommen.
