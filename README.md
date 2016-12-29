@@ -27,7 +27,7 @@ Dieser ruft dann die Funktion "addContact" auf, die sich im Angular Modul "conta
 
 Um das Hinzufügen von leeren oder falschen Datensätzen zu verhindern, habe ich am Anfang der Funktion eine Abfrage hinzugefügt, die die Eingabe der Formularfelder vorab prüft und bei falscher Eingabe dem Nutzer über einen Alert eine Fehlermeldung gibt und danach die Funktion frühzeitig verlässt, damit die Daten nicht hinzugefügt werden.
 
-> Eine mögliche Verbesserung wäre hier eine komplexere Validierung der Telefonnummer beim Hinzufügen eines neuen Kontakts (Filterung durch String replace Funktion und eventuell zwei Attribute im Datensatz, einmal für die Anzeige und für den Link) oder Filterung der Telefonnummer im "href"-Attribut des Links über eine extra dafür angelegte Funktion im Angular Modul.
+> Eine mögliche Verbesserung wäre hier eine komplexere Validierung der Telefonnummer beim Hinzufügen eines neuen Kontakts (Filterung durch String [replace](http://www.w3schools.com/jsref/jsref_replace.asp) Funktion und eventuell zwei Attribute im Datensatz, einmal für die Anzeige und für den Link) oder Filterung der Telefonnummer im "href"-Attribut des Links über eine extra dafür angelegte Funktion im Angular Modul.
 
 ### Bearbeiten bestehender Einträge
 
@@ -37,19 +37,19 @@ Hinter dem Button steckt eine einfache Funktion "toggleEdit" aus dem Angular Mod
 
 Durch diese Umsetzung wird es sogar möglich mehrere Kontakte gleichzeitig zu bearbeiten. Eigentlich ist die Bezeichnung des Buttons "Speichern" irreführend, weil beim Bearbeiten schon direkt der Datensatz in der Collection des Models geändert wird. Es wäre also die Bezeichnung Bearbeitungsmodus "Beenden" korrekter, aber für den normalen Nutzer, der sich nicht mit AngularJS auskennt, ist es aus Gründen der [Benutzerfreundlichkeit](https://de.wikipedia.org/wiki/Benutzerfreundlichkeit) besser die Bezeichnung "Speichern" zu verwenden.
 
-> Eine mögliche Verbesserung wäre eine andere Umsetzung des Bearbeitungsmoduses um eine komplexe Validierung der Daten möglich zu machen. Vielleicht wäre der Einsatz des HTML-Attributes "disable" in allen anderen Formularfelder und Buttons zu empfehlen, wenn nur ein Eintrag zur Zeit bearbeitbar und kein Löschen, Hinzufügen oder Suchen währenddessen möglich sein soll.
+> Eine mögliche Verbesserung wäre eine andere Umsetzung des Bearbeitungsmoduses um eine komplexe Validierung der Daten möglich zu machen. Vielleicht wäre der Einsatz des HTML-Attributes "disable" in allen anderen Formularfeldern und Buttons zu empfehlen, wenn nur ein Eintrag zur Zeit bearbeitbar und kein Löschen, Hinzufügen oder Suchen währenddessen möglich sein soll.
 
 ### Löschen bestehender Einträge
 
 Um einen Kontakt aus dem Telefonbuch zu löschen, betätigt man den Button "Löschen" in der rechten Spalte der Tabelle und der ausgewählte Eintrag wird aus der Liste entfernt.
 
-Der Button ruft die Funktion "deleteContact" aus dem Angular Modul auf, die mit dem Übergabewert "index" den Datensatz an der ausgewählten Stelle der Collection mit der Array Funktion ["splice"](http://www.w3schools.com/jsref/jsref_splice.asp) entfernt. Durch die bidirektionale Datenbindung wird der [DOM](https://de.wikipedia.org/wiki/Document_Object_Model) sofort aktualisiert.
+Der Button ruft die Funktion "deleteContact" aus dem Angular Modul auf, die mit dem Übergabewert "index" den Datensatz an der ausgewählten Stelle der Collection mit der Array Funktion [splice](http://www.w3schools.com/jsref/jsref_splice.asp) entfernt. Durch die bidirektionale Datenbindung wird der [DOM](https://de.wikipedia.org/wiki/Document_Object_Model) sofort aktualisiert.
 
 ### Suche nach Namen
 
 In dem Textfeld im Header der App oben rechts kann ein Suchbegriff eingegeben werden, der die Kontaktliste im Content nach dem Attribut "name" filtert. Es ist keine Bestätigung über einen Button nötig, weil die Suche während der Eingabe schon aktiv ist. Um die Suche zu beenden muss das Textfeld wieder geleert werden.
 
-Diese Funktionalität benötigte keine einzige Zeile [JavaScript](https://de.wikipedia.org/wiki/JavaScript) Code, sondern wird nur durch die Angular Attribute im HTML festgelegt. Im Textfeld wird über [ngModel](https://docs.angularjs.org/api/ng/directive/ngModel) die Variable "searchText" dem Model hinzugefügt und ist direkt mit der Eingabe im Formularfeld verbunden. Der Zusatz ".name" hinter dieser Variable definiert, dass nur nach dem Attribut "name" des Objekts gefiltert werden soll.
+Diese Funktionalität benötigt keine einzige Zeile [JavaScript](https://de.wikipedia.org/wiki/JavaScript) Code, sondern wird nur durch die Angular Attribute im HTML festgelegt. Im Textfeld wird über [ngModel](https://docs.angularjs.org/api/ng/directive/ngModel) die Variable "searchText" dem Model hinzugefügt und ist direkt mit der Eingabe im Formularfeld verbunden. Der Zusatz ".name" hinter dieser Variable definiert, dass nur nach dem Attribut "name" des Objekts gefiltert werden soll.
 
 In der Kontaktliste fügt man an der Stelle im HTML, wo [ngRepeat](https://docs.angularjs.org/api/ng/directive/ngRepeat) aufgerufen wird, einen Trennstrich hinzu, hinter dem der Filter für die Liste definiert wird. Hier wird die zuvor angelegte Variable "searchText" angegeben, womit die Anzeige der Kontaktliste automatisch über das Model mit der Eingabe im Textfeld verbunden wird.
 
