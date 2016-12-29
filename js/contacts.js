@@ -2,19 +2,35 @@ angular.module('contactApp', [])
 	.controller('ContactListController', function() {
 		var contactList = this;
 		/*
-		Das Array "contacts" enthält einen beispielhaften Satz aus Kontakdaten der dem Aufbau einer JSON-Datei gleicht (Objekte mit Attributen) 
-		und in Verbindung mit einem Server durch eine Solche ersetzt werden kann (per Ajax könnte man hier eine Verbindung mit dem Backend aufbauen)
+		Das Array "contacts" enthält einen beispielhaften Satz aus Kontakdaten der dem Aufbau einer JSON-Datei gleicht 
+		(Objekte mit Attributen) und in Verbindung mit einem Server durch eine Solche ersetzt werden kann (per Ajax 
+		könnte man hier eine Verbindung mit dem Backend aufbauen)
 		*/
-		contactList.contacts = [{name:'Annika Bokelmann', phone:'+4917621360084', edit: false},
-						 		{name:'Dr. Ralf Itter', phone:'+495519003790', edit: false},
-						 		{name:'dff solutions GmbH', phone:'+495519003790', edit: false}];
+		contactList.contacts = [
+			{
+				name:'Annika Bokelmann', 
+				phone:'+4917621360084', 
+				edit: false
+			},
+			{
+				name:'dff solutions GmbH', 
+				phone:'+495519003790', 
+				edit: false
+			},
+			{
+				name:'Dr. Ralf Itter', 
+				phone:'+495519003790', 
+				edit: false
+			}
+		];
 		//austauschbare Strings für die Anzeige vom Bearbeitungsmodus im Button
 		contactList.textEdit = 'Bearbeiten';
 		contactList.textSave = 'Speichern';
 		
 		/*
-		Die Funktion "addContact" fügt dem Array "contacts" einen neuen Datensatz hinzu, der sich aus den Attributen "name" und "phone" zusammensetzt, 
-		dessen Inhalt durch die Eingabe in den Formularfeldern über die dort definierten Variablen festgelegt wird
+		Die Funktion "addContact" fügt dem Array "contacts" einen neuen Datensatz hinzu, der sich aus den Attributen 
+		"name" und "phone" zusammensetzt, dessen Inhalt durch die Eingabe in den Formularfeldern über die dort definierten 
+		Variablen festgelegt wird
 		*/
 		contactList.addContact = function() {
 			//Fehlermeldung bei leeren Textfeldern oder wenn keine Telefonnummer
@@ -39,8 +55,9 @@ angular.module('contactApp', [])
 		};
 		
 		/*
-		Die Funktion "toggleEdit" wechselt den booleanschen Wert des Attributes "edit" des über den Button ausgewählten Datensatzes (Übergabewert "index"), 
-		in dessen Folge in den HTML-Tags mit "ng-show" zwischen der reinen Textansicht und der bearbeitbaren Formularansicht gewechselt wird
+		Die Funktion "toggleEdit" wechselt den booleanschen Wert des Attributes "edit" des über den Button ausgewählten 
+		Datensatzes (Übergabewert "index"), in dessen Folge in den HTML-Tags mit "ng-show" zwischen der reinen Textansicht 
+		und der bearbeitbaren Formularansicht gewechselt wird
 		*/
 		contactList.toggleEdit = function(index) {
 			if(contactList.contacts[index].edit === false){
