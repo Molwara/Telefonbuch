@@ -42,7 +42,7 @@ Attributen) der jeweiligen Stelle im Array zugreifen kann. Ab dem Trennstrich wi
 erstellten "input"-Element angegebenen "searchText" auf die Liste angewandt werden soll -->
             <tr ng-repeat="contact in contactList.contacts | filter:contactList.searchText">
               <td>
-				<!-- Mit "ng-show" wird definiert ob die Textansicht oder das bearbeitbare Formularfeld auf der Webseite sichtbar 
+              	<!-- Mit "ng-show" wird definiert ob die Textansicht oder das bearbeitbare Formularfeld auf der Webseite sichtbar 
                 ist, dafür wird der booleansche Wert "edit" aus dem aktuellen Datensatz abgefragt. In dieser Spalte wird der Name 
                 des Kontakts ausgegeben -->
                 <span ng-show="contact.edit == false">{{contact.name}}</span>
