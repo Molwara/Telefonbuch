@@ -67,6 +67,11 @@ table td:nth-child(1) {
 	hyphens: auto;
 }
 
+table td:nth-child(3) {
+	padding-left: 0;
+	padding-right: 0;
+}
+
 table th {
 	padding: 0.7em;
 	text-align: left;
@@ -84,6 +89,7 @@ table button {
 	overflow: hidden;
 	border-radius: 0.3em;
 	color: #FFF;
+	min-width: 5em;
 }
 
 table input {
