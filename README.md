@@ -37,7 +37,7 @@ Hinter dem Button steckt eine einfache Funktion "toggleEdit" aus dem Angular Mod
 
 Durch diese Umsetzung wird es sogar möglich mehrere Kontakte gleichzeitig zu bearbeiten. Eigentlich ist die Bezeichnung des Buttons "Speichern" irreführend, weil beim Bearbeiten schon direkt der Datensatz in der Collection des Models geändert wird. Es wäre also die Bezeichnung Bearbeitungsmodus "Beenden" korrekter, aber für den normalen Nutzer, der sich nicht mit AngularJS auskennt, ist es aus Gründen der [Benutzerfreundlichkeit](https://de.wikipedia.org/wiki/Benutzerfreundlichkeit) besser die Bezeichnung "Speichern" zu verwenden.
 
-> Eine mögliche Verbesserung wäre eine andere Umsetzung des Bearbeitungsmoduses um eine komplexe Validierung der Daten möglich zu machen. Vielleicht wäre der Einsatz des HTML-Attributes "disable" in allen anderen Formularfeldern und Buttons zu empfehlen, wenn nur ein Eintrag zur Zeit bearbeitbar und kein Löschen, Hinzufügen oder Suchen währenddessen möglich sein soll.
+> Eine mögliche Verbesserung wäre eine andere Umsetzung des Bearbeitungsmoduses um eine komplexe Validierung der Daten möglich zu machen. Vielleicht wäre der Einsatz des HTML-Attributes "disable" in allen anderen Formularfeldern und Buttons zu empfehlen, wenn nur ein Eintrag bearbeitbar und kein Löschen, Hinzufügen oder Suchen währenddessen möglich sein soll.
 
 ### Löschen bestehender Einträge
 
@@ -67,7 +67,7 @@ Die Fingerübung zeigt wie mit wenig Code und der Struktur von AngularJS eine ei
 
 > "Die Strukturierung eines Angular-Webclients erfolgt auf Basis von Modulen, View-Templates, Controllern, Scopes, Filtern und Providern (Factory, Service). Für die Zusammenführung dieser Elemente ist der Dependency-Container von Angular verantwortlich. Hierdurch entsteht eine lose gekoppelte Anwendung, welche aus wiederverwendbaren Teilkomponenten besteht. [...] Hierdurch kann Programmcode zur Synchronisation zwischen View und Anwendungslogik eingespart werden." - [Wikipedia](https://de.wikipedia.org/wiki/AngularJS)
 
-Ich habe mich durch diese Aufgabe in AngularJS eingearbeiten und muss sagen, dass dieses Framework mich sehr begeistert hat. Es gibt den bisherigen Denkansätzen eine ganz neue Struktur, die einem logisch vorkommt und der Webentwicklung eine übersichtliche Einteilung bietet. Der Programmieraufwand ist wesentlich geringer und man muss sich weniger Gedanken über die Verbindung zwischen dem HTML-Template und den Datenaustausch machen. Hier nimmt Angular einem sehr viel Arbeit ab und man kann sich voll und ganz auf die Umsetzungen seiner Ideen konzentrieren. Mein persönliches Fazit ist, dass ich gerne auch weiterhin mit diesem Framework arbeiten wollen würde.
+Ich habe mich durch diese Aufgabe in AngularJS eingearbeitet und muss sagen, dass dieses Framework mich sehr begeistert hat. Es gibt den bisherigen Denkansätzen eine ganz neue Struktur, die einem logisch vorkommt und der Webentwicklung eine übersichtliche Einteilung bietet. Der Programmieraufwand ist wesentlich geringer und man muss sich weniger Gedanken über die Verbindung zwischen dem HTML-Template und den Datenaustausch machen. Hier nimmt Angular einem sehr viel Arbeit ab und man kann sich voll und ganz auf die Umsetzungen seiner Ideen konzentrieren. Mein persönliches Fazit ist, dass ich gerne auch weiterhin mit diesem Framework arbeiten möchte.
 
 > ### Mögliche Verbesserungen der Single Page Applikation
 >
