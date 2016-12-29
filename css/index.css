@@ -61,6 +61,12 @@ table td {
 	padding: 0.7em;
 }
 
+table td:nth-child(1) {
+	-ms-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+
 table th {
 	padding: 0.7em;
 	text-align: left;
